@@ -13,7 +13,7 @@ public class Stock {
         bookQuantity.put(book, currentQuantity + quantity);
     }
 
-    public void removerLivro(Book book, int quantity) {
+    public void removeBook(Book book, int quantity) {
         int currentQuantity = bookQuantity.getOrDefault(book, 0);
         if (quantity <= currentQuantity) {
             bookQuantity.put(book, currentQuantity - quantity);
@@ -22,7 +22,7 @@ public class Stock {
         }
     }
 
-    public int getQuantidadeDisponivel(Book book) {
+    public int getQuantityAvailable(Book book) {
         return bookQuantity.getOrDefault(book, 0);
     }
 }
