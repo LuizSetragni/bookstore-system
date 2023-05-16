@@ -4,7 +4,6 @@ public class Book {
     private String publishingCompany;
     private int publicationYear;
 
-    // Construtor
     public Book(String title, String author, String publishingCompany, int publicationYear) {
         this.title = title;
         this.author = author;
@@ -12,44 +11,47 @@ public class Book {
         this.publicationYear = publicationYear;
     }
 
-    // Métodos de acesso (getters) e modificação (setters)
-    public String getTitulo() {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitulo(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public String getAutor() {
+    public String getAuthor() {
         return author;
     }
 
-    public void setAutor(String author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
-    public String getEditora() {
+    public String getPublishingCompany() {
         return publishingCompany;
     }
 
-    public void setEditora(String publishingCompany) {
+    public void setPublishingCompany(String publishingCompany) {
         this.publishingCompany = publishingCompany;
     }
 
-    public int getAnoPublicacao() {
+    public int getPublicationYear() {
         return publicationYear;
     }
 
-    public void setAnoPublicacao(int publicationYear) {
+    public void setPublicationYear(int publicationYear) {
         this.publicationYear = publicationYear;
     }
 
-    // Método para exibir os detalhes do livro
-    public void exibirDetalhes() {
-        System.out.println("Livro: " + title);
+    public void showDetail() {
+        System.out.println("Book: " + title);
         System.out.println("Autor: " + author);
         System.out.println("Editora: " + publishingCompany);
         System.out.println("Ano de Publicação: " + publicationYear);
+    }
+
+    // implementar
+    public double getPrice() {
+        return 0;
     }
 }
