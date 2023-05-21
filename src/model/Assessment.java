@@ -27,7 +27,7 @@ public class Assessment {
         return comment;
     }
 
-    public void exibirAssessment() {
+    public void showAssessment() {
         System.out.println("Avaliação de " + book.getTitle() + " por " + client.getName());
         System.out.println("Score: " + score);
         System.out.println("Comentário: " + comment);

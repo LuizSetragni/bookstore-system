@@ -34,7 +34,7 @@ public class ShoppingCart {
 
     // implementar
     public List<Book> getBooks() {
-        return null;
+        return books;
     }
 
     // implementar

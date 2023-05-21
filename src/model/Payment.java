@@ -15,7 +15,7 @@ public class Payment {
         return method;
     }
 
-    public void realizarPayment() {
+    public void makePayment() {
         System.out.println("Pagamento de R$" + value + " realizado via " + method);
     }
 }
