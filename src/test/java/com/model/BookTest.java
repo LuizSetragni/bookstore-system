@@ -2,7 +2,6 @@ package com.model;
 
 import org.junit.Before;
 import org.junit.Test;
-import com.model.Book;
 
 import static org.junit.Assert.assertEquals;
 
