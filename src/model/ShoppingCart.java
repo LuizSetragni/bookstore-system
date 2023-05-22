@@ -32,12 +32,11 @@ public class ShoppingCart {
         System.out.println("Total: R$" + calculateTotalPurchase());
     }
 
-    // implementar
     public List<Book> getBooks() {
         return books;
     }
 
-    // implementar
     public void emptyCart() {
+        books.clear();
     }
 }

@@ -25,7 +25,6 @@ public class Bookstore {
     }
 
     public void makePurchase(Client client, ShoppingCart shoppingCart) {
-
         if (!clients.contains(client)) {
             System.out.println("Client não cadastrado na Livraria.");
             return;
@@ -51,13 +50,37 @@ public class Bookstore {
     public void generateReportSales() {
         System.out.println("Relatório de Vendas:");
         for (Transaction transaction : transactions) {
-            System.out.println("Client: " + transaction.getClient().getName());
-            System.out.println("Books comprados:");
+            System.out.println("Cliente: " + transaction.getClient().getName());
+            System.out.println("Livros comprados:");
             for (Book book : transaction.getShoppingCart().getBooks()) {
                 System.out.println("- " + book.getTitle() + " (" + book.getAuthor() + ")");
             }
             System.out.println("Total: R$" + transaction.getTotalPurchase());
             System.out.println("--------------------");
         }
+    }
+
+    public List<Book> getInventory() {
+        return inventory;
+    }
+
+    public List<Client> getClients() {
+        return clients;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setInventory(List<Book> inventory) {
+        this.inventory = inventory;
+    }
+
+    public void setClients(List<Client> clients) {
+        this.clients = clients;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
     }
 }

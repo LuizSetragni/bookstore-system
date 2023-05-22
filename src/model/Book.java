@@ -3,12 +3,17 @@ public class Book {
     private String author;
     private String publishingCompany;
     private int publicationYear;
+    private double price;
+    private int quantity;
 
-    public Book(String title, String author, String publishingCompany, int publicationYear) {
+    public Book(String title, String author, String publishingCompany, int publicationYear, double price,
+            int quantity) {
         this.title = title;
         this.author = author;
         this.publishingCompany = publishingCompany;
         this.publicationYear = publicationYear;
+        this.price = price;
+        this.quantity = quantity;
     }
 
     public String getTitle() {
@@ -45,13 +50,24 @@ public class Book {
 
     public void showDetail() {
         System.out.println("Book: " + title);
-        System.out.println("Autor: " + author);
-        System.out.println("Editora: " + publishingCompany);
-        System.out.println("Ano de Publicação: " + publicationYear);
+        System.out.println("Author: " + author);
+        System.out.println("Publishing Company: " + publishingCompany);
+        System.out.println("Publication Year: " + publicationYear);
     }
 
-    // implementar
     public double getPrice() {
-        return 0;
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
