@@ -1,13 +1,9 @@
 public class Main {
     public static void main(String[] args) {
         // Criando objetos do tipo Book
-        // Book book1 = new Book("Book 1", "Autor 1", 19.99);
-        // Book book2 = new Book("Book 2", "Autor 2", 29.99);
-        // Book book3 = new Book("Book 3", "Autor 3", 14.99);
-
-        Book book1 = new Book("Book 1", "Autor 1", "lulu", 2020);
-        Book book2 = new Book("Book 2", "Autor 2", "lele", 2021);
-        Book book3 = new Book("Book 3", "Autor 3", "lala", 2022);
+        Book book1 = new Book("Book 1", "Autor 1", "lulu", 2020, 19.99, 5);
+        Book book2 = new Book("Book 2", "Autor 2", "lele", 2021, 29.99, 3);
+        Book book3 = new Book("Book 3", "Autor 3", "lala", 2022, 14.99, 0);
 
         // Criando objetos do tipo Client
         Client client1 = new Client("João", "rua 1", "35327171");
@@ -64,11 +60,10 @@ public class Main {
         System.out.println("Quantidade disponível do livro 1: " + quantityAvailable);
 
         // Criando objeto do tipo Report
-        // Report report = new Report(bookstore.getInventario(),
-        // bookstore.getTransacoes());
+        Report report = new Report(bookstore.getInventory(), bookstore.getTransactions());
 
         // Gerando relatórios
-        // report.generateReportInventory();
-        // report.generateReportSales();
+        report.generateReportInventory();
+        report.generateReportSales();
     }
 }
