@@ -1,3 +1,5 @@
+package com.model;
+
 public class Assessment {
     private Client client;
     private Book book;

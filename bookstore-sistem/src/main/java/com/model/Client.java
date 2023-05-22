@@ -1,3 +1,5 @@
+package com.model;
+
 public class Client {
     private String name;
     private String address;

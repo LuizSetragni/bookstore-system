@@ -1,3 +1,5 @@
+package com.model;
+
 public class Payment {
     private double value;
     private String method;

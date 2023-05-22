@@ -1,3 +1,14 @@
+package com;
+
+import com.model.Assessment;
+import com.model.Book;
+import com.model.Bookstore;
+import com.model.Client;
+import com.model.Payment;
+import com.model.Report;
+import com.model.ShoppingCart;
+import com.model.Stock;
+
 public class Main {
     public static void main(String[] args) {
         // Criando objetos do tipo Book
