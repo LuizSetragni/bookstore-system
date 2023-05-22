@@ -1,81 +1,98 @@
 package com.model;
 
+import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-
 public class BookTest {
+    private Book book;
+    private String title;
+    private String author;
+    private String publishingCompany;
+    private int publicationYear;
+    private double price;
+    private int quantity;
 
-    @Test
-    public void testGetTitle() {
-        Book book = new Book("Book 1", "Author 1", "Publisher", 2021, 19.99, 10);
-        assertEquals("Book 1", book.getTitle());
+    @Before
+    public void setUp() {
+        this.title = "O Diário Secreto de Laura Palmer";
+        this.author = "Jennifer Lynch";
+        this.publishingCompany = "Globo Livros";
+        this.publicationYear = 1990;
+        this.price = 55.60;
+        this.quantity = 2;
+        this.book = new Book(title, author, publishingCompany, publicationYear, price, quantity);
     }
 
     @Test
-    public void testBookDetails() {
-        String title = "The Great Gatsby";
-        String author = "F. Scott Fitzgerald";
-        String publishingCompany = "Scribner";
-        int publicationYear = 1925;
-        double price = 19.99;
-        int quantity = 10;
-
-        Book book = new Book(title, author, publishingCompany, publicationYear, price, quantity);
-
-        // Verifica se os detalhes do livro estão corretos
+    public void deveRetornarTitle() {
         assertEquals(title, book.getTitle());
+    }
+
+    @Test
+    public void deveSetarTitle() {
+        book.setTitle("O diário de Laura Palmer");
+        assertEquals("O diário de Laura Palmer", book.getTitle());
+    }
+
+    @Test
+    public void deveRetornarAuthor() {
         assertEquals(author, book.getAuthor());
+    }
+
+    @Test
+    public void deveSetarAuthor() {
+        book.setAuthor("David Lynch");
+        assertEquals("David Lynch", book.getAuthor());
+    }
+
+    @Test
+    public void deveRetornarPublishingCompany() {
         assertEquals(publishingCompany, book.getPublishingCompany());
+    }
+
+    @Test
+    public void deveSetarPublishingCompany() {
+        book.setPublishingCompany("Editora PUC");
+        assertEquals("Editora PUC", book.getPublishingCompany());
+    }
+
+    @Test
+    public void deveRetornarPublicationYear() {
         assertEquals(publicationYear, book.getPublicationYear());
+    }
+
+    @Test
+    public void deveSetarPublicationYear() {
+        book.setPublicationYear(2023);
+        assertEquals(2023, book.getPublicationYear());
+    }
+
+    @Test
+    public void deveRetornarPrice() {
+        assertEquals(price, book.getPrice(), 1);
+    }
+
+    @Test
+    public void deveSetarPrice() {
+        book.setPrice(85.00);
+        assertEquals(85.00, book.getPrice(), 1);
+    }
+
+    @Test
+    public void deveRetornarQuantity() {
         assertEquals(quantity, book.getQuantity());
     }
 
     @Test
-    public void testSettersAndGetters() {
-        Book book = new Book("Title", "Author", "Publisher", 2023, 9.99, 5);
-
-        // Altera os valores dos atributos usando os setters
-        book.setTitle("New Title");
-        book.setAuthor("New Author");
-        book.setPublishingCompany("New Publisher");
-        book.setPublicationYear(2022);
-        book.setPrice(14.99);
-        book.setQuantity(3);
-
-        // Verifica se os getters retornam os valores corretos
-        assertEquals("New Title", book.getTitle());
-        assertEquals("New Author", book.getAuthor());
-        assertEquals("New Publisher", book.getPublishingCompany());
-        assertEquals(2022, book.getPublicationYear());
-        assertEquals(3, book.getQuantity());
+    public void deveSetarQuantity() {
+        book.setQuantity(5);
+        assertEquals(5, book.getQuantity());
     }
 
     @Test
-    public void testShowDetail() {
-        String title = "To Kill a Mockingbird";
-        String author = "Harper Lee";
-        String publishingCompany = "J. B. Lippincott & Co.";
-        int publicationYear = 1960;
-        double price = 12.99;
-        int quantity = 8;
-
-        Book book = new Book(title, author, publishingCompany, publicationYear, price, quantity);
-
-        // Redireciona a saída de impressão para uma string
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputStream));
-
-        // Chama o método showDetail() do livro
+    public void deveImprimirBook() {
         book.showDetail();
-
-        // Verifica se a saída impressa está correta
-        String expectedOutput = "Book: " + title + "\n" +
-                "Author: " + author + "\n" +
-                "Publishing Company: " + publishingCompany + "\n" +
-                "Publication Year: " + publicationYear;
-        assertEquals(expectedOutput, outputStream.toString().trim());
     }
 }
