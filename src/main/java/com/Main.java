@@ -6,6 +6,7 @@ import com.model.Bookstore;
 import com.model.Client;
 import com.model.Payment;
 import com.model.Report;
+import com.model.Review;
 import com.model.ShoppingCart;
 import com.model.Stock;
 
@@ -55,6 +56,12 @@ public class Main {
 
         // Exibindo a avaliação
         assessment.showAssessment();
+
+        // Criando objeto do tipo Review
+        Review review = new Review(client1, book1, 4, "Gostei bastante!");
+
+        // Exibindo a avaliação
+        review.showReview();
 
         // Criando objeto do tipo Stock
         Stock stock = new Stock();
