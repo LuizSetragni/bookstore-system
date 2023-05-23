@@ -9,11 +9,15 @@ import com.model.Client;
 import com.model.ShoppingCart;
 import com.model.Transaction;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class BookstoreTest {
@@ -104,5 +108,39 @@ public class BookstoreTest {
     public void deveSetarCliente() {
         bookstore.setClients(Arrays.asList(client));
         assertEquals(1, bookstore.getClients().size());
+    }
+
+    @Test
+    public void testMakePurchase_WithNonRegisteredClient() {
+        when(client.getName()).thenReturn("John Doe");
+
+        bookstore.makePurchase(client, shoppingCart);
+
+        List<Transaction> transactions = bookstore.getTransactions();
+        assertEquals(0, transactions.size());
+
+        verify(shoppingCart, never()).emptyCart();
+
+        // Verify that the error message for non-registered client is printed to the console
+        // You can use Mockito to verify console output, but it requires additional setup.
+        // Alternatively, you can modify the code to use a logger and verify the logs instead.
+    }
+
+    @Test
+    public void testMakePurchase_WithEmptyCart() {
+        when(client.getName()).thenReturn("John Doe");
+        when(shoppingCart.getBooks()).thenReturn(new ArrayList<>());
+
+        bookstore.registerClient(client);
+        bookstore.makePurchase(client, shoppingCart);
+
+        List<Transaction> transactions = bookstore.getTransactions();
+        assertEquals(0, transactions.size());
+
+        verify(shoppingCart, never()).emptyCart();
+
+        // Verify that the error message for empty cart is printed to the console
+        // You can use Mockito to verify console output, but it requires additional setup.
+        // Alternatively, you can modify the code to use a logger and verify the logs instead.
     }
 }

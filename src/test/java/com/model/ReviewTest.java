@@ -20,7 +20,7 @@ public class ReviewTest {
     private String comment;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         this.client = mock(Client.class);
         this.book = mock(Book.class);
         this.rating = 5;
@@ -29,27 +29,27 @@ public class ReviewTest {
     }
 
     @Test
-    public void deveRetornarClient(){
+    public void deveRetornarClient() {
         assertEquals(client, review.getClient());
     }
 
     @Test
-    public void deveRetornarBook(){
+    public void deveRetornarBook() {
         assertEquals(book, review.getBook());
     }
 
     @Test
-    public void deveRetornarRating(){
+    public void deveRetornarRating() {
         assertEquals(rating, review.getRating());
     }
 
     @Test
-    public void deveRetornarComment(){
+    public void deveRetornarComment() {
         assertEquals(comment, review.getComment());
     }
 
     @Test
-    public void deveImprimirReview(){
+    public void deveImprimirReview() {
         review.showReview();
     }
 }
