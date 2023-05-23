@@ -3,9 +3,6 @@ package com.model;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import com.model.Client;
-import com.model.ShoppingCart;
-import com.model.Transaction;
 
 import java.time.LocalDate;
 

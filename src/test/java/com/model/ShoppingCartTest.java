@@ -3,8 +3,6 @@ package com.model;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import com.model.Book;
-import com.model.ShoppingCart;
 
 import java.util.Collections;
 import java.util.List;
@@ -39,6 +37,7 @@ public class ShoppingCartTest {
         shoppingCart.removeBook(book);
         assertFalse(shoppingCart.getBooks().contains(book));
     }
+
     @Test
     public void deveCalcularValorCarrinho() {
         shoppingCart.addBook(mockBook());
@@ -46,30 +45,30 @@ public class ShoppingCartTest {
     }
 
     @Test
-    public void deveImprimirCarrinho(){
+    public void deveImprimirCarrinho() {
         shoppingCart.addBook(mockBook());
         shoppingCart.showShoppingCart();
     }
 
     @Test
-    public void deveRetornarCarrinhoComItens(){
+    public void deveRetornarCarrinhoComItens() {
         shoppingCart.addBook(mockBook());
         assertEquals(1, shoppingCart.getBooks().size());
     }
 
     @Test
-    public void deveRetornarCarrinhoVazio(){
+    public void deveRetornarCarrinhoVazio() {
         assertEquals(Collections.emptyList(), shoppingCart.getBooks());
     }
 
     @Test
-    public void deveLimparCarrinho(){
+    public void deveLimparCarrinho() {
         shoppingCart.addBook(mockBook());
         shoppingCart.emptyCart();
         assertEquals(Collections.emptyList(), shoppingCart.getBooks());
     }
 
-    private Book mockBook(){
+    private Book mockBook() {
         return new Book("O Diário Secreto de Laura Palmer", "Jennifer Lynch", "Globo Livros", 1990, 59.90, 1);
     }
 

@@ -3,11 +3,6 @@ package com.model;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import com.model.Book;
-import com.model.Bookstore;
-import com.model.Client;
-import com.model.ShoppingCart;
-import com.model.Transaction;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -111,36 +106,22 @@ public class BookstoreTest {
     }
 
     @Test
-    public void testMakePurchase_WithNonRegisteredClient() {
-        when(client.getName()).thenReturn("John Doe");
-
+    public void deveRetornarClienteNaoEncontrado() {
+        when(client.getName()).thenReturn("Laura Palmer");
         bookstore.makePurchase(client, shoppingCart);
-
         List<Transaction> transactions = bookstore.getTransactions();
         assertEquals(0, transactions.size());
-
         verify(shoppingCart, never()).emptyCart();
-
-        // Verify that the error message for non-registered client is printed to the console
-        // You can use Mockito to verify console output, but it requires additional setup.
-        // Alternatively, you can modify the code to use a logger and verify the logs instead.
     }
 
     @Test
-    public void testMakePurchase_WithEmptyCart() {
-        when(client.getName()).thenReturn("John Doe");
+    public void deveRetornarCarrinhoVazio() {
+        when(client.getName()).thenReturn("Laura Palmer");
         when(shoppingCart.getBooks()).thenReturn(new ArrayList<>());
-
         bookstore.registerClient(client);
         bookstore.makePurchase(client, shoppingCart);
-
         List<Transaction> transactions = bookstore.getTransactions();
         assertEquals(0, transactions.size());
-
         verify(shoppingCart, never()).emptyCart();
-
-        // Verify that the error message for empty cart is printed to the console
-        // You can use Mockito to verify console output, but it requires additional setup.
-        // Alternatively, you can modify the code to use a logger and verify the logs instead.
     }
 }

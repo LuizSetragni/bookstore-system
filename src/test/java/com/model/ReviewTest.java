@@ -3,9 +3,6 @@ package com.model;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-import com.model.Book;
-import com.model.Client;
-import com.model.Review;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;

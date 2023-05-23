@@ -2,7 +2,6 @@ package com.model;
 
 import org.junit.Before;
 import org.junit.Test;
-import com.model.Payment;
 
 import static org.junit.Assert.assertEquals;
 
@@ -19,17 +18,17 @@ public class PaymentTest {
     }
 
     @Test
-    public void deveRetornarValue(){
+    public void deveRetornarValue() {
         assertEquals(value, payment.getValue(), 1);
     }
 
     @Test
-    public void deveRetornarMethod(){
+    public void deveRetornarMethod() {
         assertEquals(method, payment.getMethod());
     }
 
     @Test
-    public void deveImprimirPayment(){
+    public void deveImprimirPayment() {
         payment.makePayment();
     }
 }

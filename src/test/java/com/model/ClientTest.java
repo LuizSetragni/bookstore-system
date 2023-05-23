@@ -2,7 +2,6 @@ package com.model;
 
 import org.junit.Before;
 import org.junit.Test;
-import com.model.Client;
 
 import static org.junit.Assert.assertEquals;
 
@@ -22,7 +21,7 @@ public class ClientTest {
 
     @Test
     public void deveRetornarName() {
-       assertEquals(name, client.getName());
+        assertEquals(name, client.getName());
     }
 
     @Test
